@@ -1,3 +1,8 @@
+##for security so that uploaded files cannot be downloaded, protect in NGINX
+location ^~ /uploads/ {
+        deny all;
+    }
+
 ## General Summary
 This index.php file is a dynamic webpage with two primary functions:
 As a file upload tool, allowing users to upload a "Peer Teaching Observation Sheet" to the server.

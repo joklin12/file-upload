@@ -1,4 +1,10 @@
 <?php
+/**
+ * @package     File Upload
+ * @author      Joko Supriyanto <joko@sibermu.ac.id>
+ * @copyright   Copyright (C) Juni 2025 Biro Sistem Informasi SiberMu. All rights reserved.
+ * @license     GNU
+ */
 // Mulai session di baris paling atas
 session_start();
 // Atur zona waktu ke Waktu Indonesia Barat (WIB)

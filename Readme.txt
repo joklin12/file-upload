@@ -1,7 +1,16 @@
-##for security so that uploaded files cannot be downloaded, protect in NGINX
+##for security so that uploaded files cannot be downloaded:
+- protect in NGINX
 location ^~ /uploads/ {
         deny all;
     }
+
+- For Apache
+Create a new file named .htaccess (make sure there is a dot in front of it) in the folder you want to protect, namely the uploads/ folder.
+Fill the .htaccess file with one of the following two options :
+Option A: For Apache 2.4 (Most Common Currently) : Require all denied
+Option B: For Apache 2.2 (Older Version) : 
+Order allow,deny
+Deny from all
 
 ## General Summary
 This index.php file is a dynamic webpage with two primary functions:

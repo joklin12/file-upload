@@ -1,0 +1,155 @@
+/* ======================================================= */
+/* === STYLE UNTUK KARTU BERITA DI DASHBOARD (VERSI BARU) === */
+/* ======================================================= */
+
+/* --- Kontainer Utama --- */
+.news-section-container {
+    padding: 60px 0; /* Menambah ruang vertikal */
+    background-color: #f8f9fa; /* Memberi latar belakang berbeda untuk memisahkan seksi */
+}
+
+/* --- Judul Seksi --- */
+.news-section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #212529; /* Warna gelap untuk kontras */
+    text-align: center;
+    margin-bottom: 15px;
+    position: relative;
+}
+/* Menambahkan garis aksen di bawah judul */
+.news-section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: #007bff; /* Warna primer (biru) */
+    border-radius: 2px;
+    margin: 15px auto 50px; /* Posisi di tengah setelah judul */
+}
+
+
+/* --- Grid untuk Kartu --- */
+.news-grid {
+    display: grid;
+    /* Membuat 4 kolom di layar besar */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px; /* Sedikit memperbesar jarak antar kartu */
+}
+
+/* --- Kartu Berita --- */
+.news-card {
+    display: flex; /* Menggunakan flexbox untuk kontrol layout internal */
+    flex-direction: column; /* Menata konten secara vertikal */
+    text-decoration: none;
+    background-color: #ffffff; /* Warna putih bersih */
+    border-radius: 12px; /* Radius lebih besar untuk kesan lebih lembut */
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e9ecef; /* Border halus */
+}
+
+.news-card:hover {
+    transform: translateY(-8px); /* Efek mengangkat lebih terasa */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* --- Wrapper & Gambar --- */
+.news-card-image-wrapper {
+    width: 100%;
+    padding-top: 56.25%; /* Rasio aspek 16:9 */
+    position: relative;
+    overflow: hidden; /* Memastikan gambar tidak keluar dari radius */
+}
+
+.news-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Memastikan gambar mengisi area */
+    transition: transform 0.4s ease; /* Transisi untuk efek zoom */
+}
+
+.news-card:hover .news-card-image {
+    transform: scale(1.05); /* Efek zoom-in pada gambar saat hover */
+}
+
+/* --- Konten Kartu --- */
+.news-card-content {
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Memastikan konten mengisi sisa ruang kartu */
+}
+
+.news-card-date {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #6c757d; /* Abu-abu untuk teks sekunder */
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+}
+
+.news-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #212529;
+    line-height: 1.5;
+    flex-grow: 1; /* Mendorong footer ke bawah */
+    margin-bottom: 15px;
+
+    /* Truncate text (opsional, sudah ada) */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+/* --- (BARU) Link Baca Selengkapnya --- */
+.news-card-footer {
+    margin-top: auto; /* Mendorong footer ke bagian bawah kartu */
+    padding-top: 10px;
+    border-top: 1px solid #f1f1f1; /* Garis pemisah halus */
+}
+
+.news-card-readmore {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.news-card-readmore:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+
+/* --- Media Queries (Responsif) --- */
+@media (max-width: 1200px) {
+    .news-grid {
+        /* 3 kolom di layar laptop */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .news-grid {
+        /* 2 kolom di layar tablet */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .news-grid {
+        /* 1 kolom di layar mobile */
+        grid-template-columns: 1fr;
+    }
+    .news-section-title {
+        font-size: 1.8rem;
+    }
+}
